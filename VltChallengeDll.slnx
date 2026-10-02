@@ -1,0 +1,10 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="x86" />
+  </Configurations>
+  <Project Path="Injector/Injector.vcxproj" Id="04918ad4-24fe-4c9d-8123-8288ae0b38fa" />
+  <Project Path="Target/Target.vcxproj" Id="23cdc3f2-320e-4d32-916d-14911c00f549" />
+  <Project Path="VltChallengeDll/VltChallengeDll.vcxproj" Id="4289c68d-9b4e-428a-8da1-e41e10e086d3" />
+</Solution>
