@@ -1,0 +1,162 @@
+╔════════════════════════════════════════════════════════════════════════════╗
+║                   VltChallengeDll - QUICK START CARD                       ║
+║            Context Hijacking + IAT Hook - Windows Injection                ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+📋 PASSO 1: INSTALAR VISUAL STUDIO COMMUNITY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Download: https://visualstudio.microsoft.com/downloads/
+2. Instale: "Visual Studio Community 2022"
+3. Selecione: "Desktop development with C++"
+4. Aguarde instalação (15-30 minutos)
+
+📖 Detalhes: SETUP_VISUAL_STUDIO.md
+
+
+🚀 PASSO 2: COMPILAR NO VISUAL STUDIO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Abra: VltChallengeDll.sln
+2. Menu: Build → Rebuild Solution
+3. Aguarde: "Build complete" (sem erros)
+
+⏱️  Leva 1-3 minutos
+
+
+💉 PASSO 3: EXECUTAR A INJEÇÃO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Terminal 1: Abra Notepad
+  notepad.exe
+
+Terminal 2: Execute Injector (como Admin)
+  cd C:\Users\Max\source\repos\VltChallengeDll
+  x64\Debug\Injector.exe
+
+✅ Resultado esperado:
+   - 3 MessageBoxes aparecem no Notepad
+   - MessageBox 1: "[+] DLL INJECTADA COM SUCESSO!"
+   - MessageBox 2: "[+] IAT HOOK INSTALADO!"
+   - MessageBox 3: "[HACKED by IAT Hook]"
+
+
+🔍 VERIFICAR SE FUNCIONOU
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ SIM - Vi as 3 MessageBoxes
+   → Parabéns! Projeto funcionando perfeitamente
+   → Próximo: Estude o código (veja abaixo)
+
+❌ NÃO - Nenhuma MessageBox apareceu
+   → Verificar: RECOMPILE_AND_TEST.md
+   → Ou execute: .\DIAGNOSE.ps1 (PowerShell Admin)
+
+
+📚 DOCUMENTAÇÃO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Para Iniciantes:
+  ▶ SETUP_VISUAL_STUDIO.md        Passo-a-passo completo
+  ▶ README_PT.md                  Visão geral do projeto
+
+Para Intermediários:
+  ▶ Artigo/artigo_principal.md    Documentação técnica completa
+  ▶ IATHooking/README.md          Explicação de IAT Hooking
+
+Para Estudar o Código:
+  ▶ Injector/Injector.cpp         Context Hijacking
+  ▶ VltChallengeDll/dllmain.cpp   IAT Hook implementation
+  ▶ IATHooking/iat_hook.h         Classe reutilizável
+
+
+🎯 ESTRUTURA DO PROJETO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+VltChallengeDll/
+├── VltChallengeDll/              ← DLL a injetar
+│   └── dllmain.cpp               ← Context Hijacking + IAT Hook
+├── Injector/                     ← Ferramenta de injeção
+│   └── Injector.cpp              ← Context Hijacking
+├── IATHooking/                   ← Módulo educacional
+│   ├── iat_hook.h/cpp            ← Classe reutilizável
+│   └── test_iat_hook.cpp         ← Teste standalone
+└── Artigo/                       ← Documentação
+
+
+🔧 MODIFICAR E TESTAR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Edite: VltChallengeDll/dllmain.cpp
+2. Compile: Build → Rebuild Solution
+3. Teste: x64\Debug\Injector.exe
+
+
+⚙️  ATALHOS ÚTEIS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Ctrl + Alt + F7     Rebuild Solution
+Ctrl + Shift + B    Build Solution
+F5                  Debug
+Ctrl + Shift + B    Quick rebuild
+Ctrl + Alt + L      Solution Explorer
+
+
+❓ TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+MessageBox não aparece?
+  → Verifique: RECOMPILE_AND_TEST.md
+  → Abra outro terminal e verifique se Notepad está ativo
+  → MessageBox pode estar atrás (Alt+Tab)
+
+Erro de compilação?
+  → Tools → Get Tools and Features
+  → Modifique para adicionar "Desktop development with C++"
+
+Linker error (unresolved external)?
+  → Project → Properties → Linker → Input
+  → Certifique: kernel32.lib, user32.lib, advapi32.lib
+
+
+🎓 PRÓXIMOS PASSOS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Nível 1 (Iniciante):
+  □ Executar o projeto com sucesso
+  □ Ver as 3 MessageBoxes
+  □ Modificar uma mensagem e recompilar
+
+Nível 2 (Intermediário):
+  □ Ler o código de Context Hijacking (Injector.cpp)
+  □ Entender parsing de PE headers (dllmain.cpp)
+  □ Estudar IAT Hook (IATHooking/README.md)
+
+Nível 3 (Avançado):
+  □ Modificar técnica (hook outras funções)
+  □ Implementar suas próprias defesas
+  □ Analisar com debugger (WinDbg)
+
+
+📞 PRECISA DE AJUDA?
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Leia: RECOMPILE_AND_TEST.md (troubleshooting)
+2. Leia: SETUP_VISUAL_STUDIO.md (setup completo)
+3. Leia: README_PT.md (visão geral)
+4. Estude: Artigo/artigo_principal.md (conceitos)
+
+
+✨ VOCÊ ESTÁ AQUI:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[1] Instalar VS    →  [2] Compilar    →  [3] Injetar    →  [SUCCESS!]
+     ✅                    ↑              ↑
+   (você está               └──── SETUP_VISUAL_STUDIO.md
+     aqui)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+            Context Hijacking + IAT Hook - Windows Injection Lab
+                      Educational Purpose Only - 2026
+═══════════════════════════════════════════════════════════════════════════════
