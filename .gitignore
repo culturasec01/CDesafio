@@ -1,0 +1,18 @@
+# Visual Studio cache
+.vs/
+
+# Build outputs
+bin/
+obj/
+
+# IDE
+*.sln.docstates
+*.user
+*.suo
+*.sdf
+*.VC.db
+*.ipch
+
+# OS
+.DS_Store
+Thumbs.db
