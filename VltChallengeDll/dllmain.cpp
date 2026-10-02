@@ -12,8 +12,11 @@ MessageBoxWFunc OriginalMessageBoxW = nullptr;
 int WINAPI HookedMessageBoxW(HWND hWnd, LPCWSTR lpText, LPCWSTR lpCaption, UINT uType)
 {
     // Modificar a mensagem
+    std::wstring msg = L"[HACKED by IAT Hook]\n\nMensagem original:\n";
+    msg += (lpText ? lpText : L"(vazia)");
+
     return OriginalMessageBoxW(hWnd,
-                              L"[HACKED by IAT Hook]\n\nMensagem original:\n" + std::wstring(lpText ? lpText : L"(vazia)"),
+                              msg.c_str(),
                               L"[VltChallenge - IAT HOOK]",
                               uType | MB_ICONWARNING);
 }
